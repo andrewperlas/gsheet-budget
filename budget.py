@@ -16,6 +16,7 @@ while True:
     while(isValidDate):
         cost_or_income = input("Is this a cost or income? Type '1' for cost and '2' for income: ")
         while cost_or_income == "1":
+            #Validating that transaction amount entered by user is a float
             try:
                 dollar = float(input("Noooo we spent money. What is the amount? (Don't include the $ sign): "))
             except ValueError:
@@ -23,6 +24,7 @@ while True:
                 continue
             paymentmethod = input("Where are the funds for this transaction coming from? ")
             memo = input("You can enter a description of the transaction here. ")
+            #sys.exit() here to end the script since all the necessary information will have been entered
             sys.exit()
         if cost_or_income == "2":
             dollar = input("Yay we made money. What is the amount? (Don't include the $ sign): ")
@@ -31,7 +33,7 @@ while True:
         else:
             print("That is not a valid option!")
             continue
-        #sys.exit() here to end the script since all the necessary information will be gathered
+        #sys.exit() here to end the script since all the necessary information will have been entered
         sys.exit()
     else:
         #Let user know that date wasn't entered correctly.
