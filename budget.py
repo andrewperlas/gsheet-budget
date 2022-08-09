@@ -2,7 +2,6 @@ import datetime
 import sys
 
 # While True entered here so that it loops back to asking for date input if invalid date is entered
-
 while True:
     inputDate = input("Enter the date of the transaction in mm/dd/yyyy format: ")
     month,day,year = inputDate.split('/')
@@ -14,11 +13,19 @@ while True:
     except ValueError:
         isValidDate = False
     #If isValidDate is TRUE, then it will run the "if" portion
-    if(isValidDate):
-        cost_or_income = input("Is this a cost or income? ") 
-        dollar = input("What is the amount? ") 
-        paymentmethod = input("Where are the funds going to/coming from? ") 
-        memo = input("You can enter a description of the transaction here. ")
+    while(isValidDate):
+        cost_or_income = input("Is this a cost or income? Type '1' for cost and '2' for income: ")
+        if cost_or_income == "1":
+            dollar = input("Noooo we spent money. What is the amount? ")
+            paymentmethod = input("Where are the funds for tihs transaction coming from? ")
+            memo = input("You can enter a description of the transaction here. ")
+        elif cost_or_income == "2":
+            dollar = input("Yay we made money. What is the amount? ")
+            paymentmethod = input("Where is the income going to? ") 
+            memo = input("You can enter a description of the transaction here. ")
+        else:
+            print("That is not a valid option!")
+            continue
         #sys.exit() here to end the script since all the necessary information will be gathered
         sys.exit()
     else:
