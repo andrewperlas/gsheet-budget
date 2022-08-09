@@ -15,12 +15,17 @@ while True:
     #If isValidDate is TRUE, then it will run the "if" portion
     while(isValidDate):
         cost_or_income = input("Is this a cost or income? Type '1' for cost and '2' for income: ")
-        if cost_or_income == "1":
-            dollar = input("Noooo we spent money. What is the amount? ")
-            paymentmethod = input("Where are the funds for tihs transaction coming from? ")
+        while cost_or_income == "1":
+            try:
+                dollar = float(input("Noooo we spent money. What is the amount? (Don't include the $ sign): "))
+            except ValueError:
+                print("Invalid dollar amount, please enter again. ")
+                continue
+            paymentmethod = input("Where are the funds for this transaction coming from? ")
             memo = input("You can enter a description of the transaction here. ")
-        elif cost_or_income == "2":
-            dollar = input("Yay we made money. What is the amount? ")
+            sys.exit()
+        if cost_or_income == "2":
+            dollar = input("Yay we made money. What is the amount? (Don't include the $ sign): ")
             paymentmethod = input("Where is the income going to? ") 
             memo = input("You can enter a description of the transaction here. ")
         else:
