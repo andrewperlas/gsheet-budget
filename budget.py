@@ -13,6 +13,7 @@ while True:
         datetime.datetime(int(year),int(month),int(day))
     except ValueError:
         isValidDate = False
+
     #If isValidDate is TRUE, then it will run the "if" portion
     while(isValidDate):
         cost_or_income = input("Is this a cost or income? Type '1' for cost and '2' for income: ")
@@ -25,19 +26,20 @@ while True:
                 continue
             #Asking which budget account the transaction is charging to
             paymentmethod = input("Where are the funds for this transaction coming from?\n " + budgetAccounts)
-            memo = input("You can enter a description of the transaction here. ")
+            memo = input("You can enter a description of the transaction here: ")
             #sys.exit() here to end the script since all the necessary information will have been entered
             sys.exit()
         if cost_or_income == "2":
             dollar = input("Yay we made money. What is the amount? (Don't include the $ sign): ")
             #Asking which budget account the transaction is adding to
             paymentmethod = input("Where is the income going to?\n " + budgetAccounts) 
-            memo = input("You can enter a description of the transaction here. ")
+            memo = input("You can enter a description of the transaction here: ")
         else:
             print("That is not a valid option!")
             continue
         #sys.exit() here to end the script since all the necessary information will have been entered
         sys.exit()
+
     else:
         #Let user know that date wasn't entered correctly.
         print("Invalid date, please enter again.")
