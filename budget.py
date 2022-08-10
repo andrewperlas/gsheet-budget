@@ -1,5 +1,6 @@
 import datetime
 import sys
+budgetAccounts = "1. Cash\n 2. Capital One Joint Checking\n 3. Chase Checking\n 4. Ally Savings\n 5. Bank of Hawaii Checking\n 6. Bank of Hawaii Savings\n 7. Venmo (F)\n 8. Venmo (A)\n 9. AMEX Gold\n 10. Hawaiian Airlines Mastercard (F)\n 11. Hawaiian Airlines Mastercard (A)\n 12. Capital One VentureX\n 13. Chase Prime Visa\n 14. Capital One Quicksilver Mastercard\n 15. Chevron (A)\n \n"
 
 # While True entered here so that it loops back to asking for date input if invalid date is entered
 while True:
@@ -22,13 +23,13 @@ while True:
             except ValueError:
                 print("Invalid dollar amount, please enter again. ")
                 continue
-            paymentmethod = input("Where are the funds for this transaction coming from? ")
+            paymentmethod = input("Where are the funds for this transaction coming from?\n " + budgetAccounts)
             memo = input("You can enter a description of the transaction here. ")
             #sys.exit() here to end the script since all the necessary information will have been entered
             sys.exit()
         if cost_or_income == "2":
             dollar = input("Yay we made money. What is the amount? (Don't include the $ sign): ")
-            paymentmethod = input("Where is the income going to? ") 
+            paymentmethod = input("Where is the income going to?\n " + budgetAccounts) 
             memo = input("You can enter a description of the transaction here. ")
         else:
             print("That is not a valid option!")
