@@ -23,12 +23,14 @@ while True:
             except ValueError:
                 print("Invalid dollar amount, please enter again. ")
                 continue
+            #Asking which budget account the transaction is charging to
             paymentmethod = input("Where are the funds for this transaction coming from?\n " + budgetAccounts)
             memo = input("You can enter a description of the transaction here. ")
             #sys.exit() here to end the script since all the necessary information will have been entered
             sys.exit()
         if cost_or_income == "2":
             dollar = input("Yay we made money. What is the amount? (Don't include the $ sign): ")
+            #Asking which budget account the transaction is adding to
             paymentmethod = input("Where is the income going to?\n " + budgetAccounts) 
             memo = input("You can enter a description of the transaction here. ")
         else:
